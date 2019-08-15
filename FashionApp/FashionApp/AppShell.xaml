@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:FashionApp.Views"
+             mc:Ignorable="d" Shell.NavBarIsVisible="False"
+             x:Class="FashionApp.AppShell">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ThemeColor">#530100</Color>
+            <Color x:Key="GrayColor">Gray</Color>
+            <Color x:Key="BgColor">#F0F0F0</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource BgColor}"/>
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource ThemeColor}"/>
+                <Setter Property="Shell.UnselectedColor" Value="{StaticResource GrayColor}"/>
+                <Setter Property="Shell.TitleColor" Value="{StaticResource ThemeColor}"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource BgColor}"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource ThemeColor}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource GrayColor}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource ThemeColor}"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}"/>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <Tab Title="Shop" Icon="shop.png">
+            <ShellContent ContentTemplate="{DataTemplate views:ShopPage}"/>
+        </Tab>
+        <Tab Title="Explore" Icon="explore.png">
+            <ShellContent ContentTemplate="{DataTemplate views:ExplorePage}"/>
+        </Tab>
+        <Tab Title="Collections" Icon="collections.png">
+            <ShellContent ContentTemplate="{DataTemplate views:CollectionsPage}"/>
+        </Tab>
+        <Tab Title="Profile" Icon="user.png">
+            <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}"/>
+        </Tab>
+    </TabBar>
+</Shell>

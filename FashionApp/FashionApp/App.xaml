@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FashionApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="PlayfairBold">
+                <On Platform="Android" Value="PlayfairDisplay-Bold.ttf#Playfair Display Bold" />
+                <On Platform="iOS" Value="PlayfairDisplay-Bold" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="PlayfairNormal">
+                <On Platform="Android" Value="PlayfairDisplay-Regular.ttf#Playfair Display Regular" />
+                <On Platform="iOS" Value="PlayfairDisplay-Regular" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                <On Platform="Android" Value="Roboto-Bold.ttf#Roboto Bold" />
+                <On Platform="iOS" Value="Roboto-Bold" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+                <On Platform="Android" Value="Roboto-Regular.ttf#Roboto" />
+                <On Platform="iOS" Value="Roboto-Regular" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="ThinFont">
+                <On Platform="Android" Value="Roboto-Thin.ttf#Roboto Thin" />
+                <On Platform="iOS" Value="Roboto-Thin" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="LightFont">
+                <On Platform="Android" Value="Roboto-Light.ttf#Roboto Light" />
+                <On Platform="iOS" Value="Roboto-Light" />
+            </OnPlatform>
+
+            <Style TargetType="Label" >
+                <Setter Property="FontFamily" Value="{StaticResource NormalFont}"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

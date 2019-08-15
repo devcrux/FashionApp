@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             mc:Ignorable="d"
+             x:Class="FashionApp.Views.ShopPage">
+
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <cv:CarouselViewControl x:Name="cvBanners" ShowIndicators="true" IndicatorsShape="Circle" IndicatorsTintColor="LightGray"
+                                    CurrentPageIndicatorTintColor="Red" Orientation="Horizontal" InterPageSpacing="0" 
+                                    HeightRequest="270" ItemsSource="{Binding Banners}" HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="StartAndExpand" AnimateTransition="True">
+            <cv:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand"/>
+                        <Image Source="overlay.png" Aspect="Fill" HorizontalOptions="FillAndExpand"/>
+                        <StackLayout Margin="30,20,0,0" Spacing="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                            <Label Text="{Binding Heading}" TextColor="White" FontSize="12" FontFamily="{StaticResource ThinFont}"/>
+                            <BoxView BackgroundColor="White" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="1" WidthRequest="50"/>
+                            <StackLayout>
+                                <Label Text="{Binding Message}" TextColor="White" FontSize="35" FontFamily="{StaticResource PlayfairBold}"/>
+                                <Label Text="{Binding Caption}" TextColor="White" FontSize="12" FontFamily="{StaticResource LightFont}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </cv:CarouselViewControl.ItemTemplate>
+        </cv:CarouselViewControl>
+        <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="End" Margin="30,20">
+            <ImageButton Source="fav.png" Aspect="AspectFit" HeightRequest="32" WidthRequest="30" VerticalOptions="Center"/>
+            <ImageButton Source="cartFilled.png" Aspect="AspectFit" HeightRequest="32" WidthRequest="30" VerticalOptions="Center"/>
+        </StackLayout>
+        <ScrollView Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid RowSpacing="30" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid RowSpacing="20" Margin="30,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Collections" TextColor="Black" FontSize="20" FontFamily="{StaticResource BoldFont}"/>
+                    <Label Text="Show all" TextColor="Black" FontSize="14" VerticalOptions="Center" Opacity="0.5" HorizontalOptions="End" Margin="0,0,30,0"/>
+                    <ScrollView Orientation="Horizontal" Grid.Row="1" VerticalOptions="Start" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
+                        <StackLayout BindableLayout.ItemsSource="{Binding CollectionsList}" Orientation="Horizontal" Spacing="20" VerticalOptions="Start">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout VerticalOptions="Start">
+                                        <Frame Padding="0" HasShadow="False"  HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="10" HeightRequest="150" WidthRequest="150">
+                                            <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                        </Frame>
+                                        <Label Text="{Binding Name}" TextColor="Black" FontSize="15" />
+                                        <Label Text="{Binding Price}" Margin="0,-7,0,0" TextColor="#62153B" FontSize="12" FontFamily="{StaticResource BoldFont}"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+                <Grid Grid.Row="1" RowSpacing="20" Margin="30,0,0,30" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="New Trends" TextColor="Black" FontSize="20" FontFamily="{StaticResource BoldFont}"/>
+                    <Label Text="Show all" TextColor="Black" FontSize="14" VerticalOptions="Center" Opacity="0.5" HorizontalOptions="End" Margin="0,0,30,0"/>
+                    <ScrollView Orientation="Horizontal" Grid.Row="1" VerticalOptions="Start" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
+                        <StackLayout Orientation="Horizontal" BindableLayout.ItemsSource="{Binding TrendsList}" Spacing="15" VerticalOptions="Start">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal" Spacing="10" VerticalOptions="Start" WidthRequest="220">
+                                        <Frame Padding="0" HasShadow="False" HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="10" HeightRequest="90" WidthRequest="70">
+                                            <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                        </Frame>
+                                        <StackLayout Margin="0,12,0,0">
+                                            <Label Text="{Binding Name}" TextColor="Black" FontSize="15" />
+                                            <Label Text="{Binding Price}" Margin="0,-7,0,0" TextColor="#62153B" FontSize="12" FontFamily="{StaticResource BoldFont}"/>
+                                            <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
+                                                <Image Source="add.png" Aspect="Fill" VerticalOptions="Center" WidthRequest="15" HeightRequest="15"/>
+                                                <Label Text="ADD TO CART" TextColor="Black" FontSize="10" Opacity="0.6" VerticalOptions="Center"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>
