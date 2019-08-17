@@ -36,6 +36,27 @@
             <Style TargetType="Label" >
                 <Setter Property="FontFamily" Value="{StaticResource NormalFont}"/>
             </Style>
+
+            <ControlTemplate x:Key="GeneralTemplate">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="30,20,30,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{TemplateBinding Parent.Title}" TextColor="Black" FontFamily="{StaticResource PlayfairBold}" FontSize="22" VerticalOptions="Center"/>
+                        <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Center">
+                            <ImageButton Source="fav.png" Aspect="AspectFit" HeightRequest="32" WidthRequest="30" VerticalOptions="Center"/>
+                            <ImageButton Source="cartFilled.png" Aspect="AspectFit" HeightRequest="32" WidthRequest="30" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </Grid>
+                    <ContentPresenter Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                </Grid>
+            </ControlTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

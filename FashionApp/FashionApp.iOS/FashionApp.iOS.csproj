@@ -329,4 +329,31 @@
   <ItemGroup>
     <BundleResource Include="Resources\womenCol%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\watches%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\coats.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\coats%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\coats%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\minidress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\minidress%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\minidress%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\watches.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\watches%402x.png" />
+  </ItemGroup>
 </Project>
